@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TIAAutoSaveStarter": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Program Files\\Siemens\\Automation\\Portal V16\\Bin\\Siemens.Automation.Portal.exe\""
+    }
+  }
+}
