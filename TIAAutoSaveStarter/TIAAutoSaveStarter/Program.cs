@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.Remoting.Channels.Ipc;
+using System.Threading;
 using TIAAutoSave;
 
 namespace TIAAutoSaveStarter
@@ -9,6 +10,7 @@ namespace TIAAutoSaveStarter
     {
         static void Main(string[] args)
         {
+            // start TIA and start TIAAutosave if necessary
             string pathToTia = args[0];
             string pathToTiaAutosave = AppDomain.CurrentDomain.BaseDirectory + "TIAAutoSave.exe";
             Process tiaproc = System.Diagnostics.Process.Start(pathToTia);
@@ -17,45 +19,32 @@ namespace TIAAutoSaveStarter
             {
                 System.Diagnostics.Process.Start(pathToTiaAutosave);
             }
-            addTIAProcViaIPCChannel(tiaproc.Id); 
-        }
-        public static void addTIAProcViaIPCChannel(int pid)
-        {
+            Thread.Sleep(10000); // wait for Windows to start up the process etc. (otherwise we could end up with a missung process id etc.)
+
+            // start the ipc client
             // Create the channel.
             IpcChannel channel = new IpcChannel();
-
             // Register the channel.
             System.Runtime.Remoting.Channels.ChannelServices.
-                RegisterChannel(channel);
-
+                RegisterChannel(channel, false);
             // Register as client for remote object.
             System.Runtime.Remoting.WellKnownClientTypeEntry remoteType =
                 new System.Runtime.Remoting.WellKnownClientTypeEntry(
-                    typeof(RemoteObject),
-                    "ipc://localhost:9090/RemoteObject.rem");
+                    typeof(TIAAutoSaveServer),
+                    "ipc://localhost:9090/TIAAutoSaveServer.rem");
             System.Runtime.Remoting.RemotingConfiguration.
                 RegisterWellKnownClientType(remoteType);
-
             // Create a message sink.
             string objectUri;
             System.Runtime.Remoting.Messaging.IMessageSink messageSink =
                 channel.CreateMessageSink(
-                    "ipc://localhost:9090/RemoteObject.rem", null,
+                    "ipc://localhost:9090/TIAAutoSaveServer.rem", null,
                     out objectUri);
-            Console.WriteLine("The URI of the message sink is {0}.",
-                objectUri);
-            if (messageSink != null)
-            {
-                Console.WriteLine("The type of the message sink is {0}.",
-                    messageSink.GetType().ToString());
-            }
-
             // Create an instance of the remote object.
-            RemoteObject service = new RemoteObject();
+            TIAAutoSaveServer tIAAutoSaveServer = new TIAAutoSaveServer();
 
-            // Invoke a method on the remote object.
-            Console.WriteLine("The client is invoking the remote object.");
-            service.addProcToAS(pid);
+            // start a method on the server that lets TIAAutoSaveForm add the process with the given Id to the processes with autosave
+            tIAAutoSaveServer.AddProcToAS(tiaproc.Id);
         }
     }
 }

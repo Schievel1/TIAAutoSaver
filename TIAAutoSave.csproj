@@ -97,7 +97,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RemoteObject.cs" />
+    <Compile Include="TIAAutoSaveServer.cs" />
     <Compile Include="TIAAutosaveForm.cs">
       <SubType>Form</SubType>
     </Compile>

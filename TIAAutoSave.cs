@@ -13,7 +13,7 @@ namespace TIAAutoSave
         {
             this.myConstructor = constructor;
         }
-        public void run()
+        public void Run()
         {
             Console.WriteLine("TIAAutoSave: Thread started");
             //Endlessly run this instruction
@@ -35,11 +35,11 @@ namespace TIAAutoSave
                 
             }
         }
-        public decimal getAutoSaveInterval()
+        public decimal GetAutoSaveInterval()
         {
             return this.autoSaveInterval;
         }
-        public void setAutosaveInterval(decimal interval) // interval in minutes
+        public void SetAutosaveInterval(decimal interval) // interval in minutes
         {
             this.autoSaveInterval = interval;
         }
@@ -47,7 +47,7 @@ namespace TIAAutoSave
         void SavePortals()
         {
             TIAAutosaveForm tIAAutosaveForm = (TIAAutosaveForm)myConstructor;
-          IList<TiaPortalProcess> processes = tIAAutosaveForm.getAutosaveProcesses();
+            IList<TiaPortalProcess> processes = tIAAutosaveForm.GetAutosaveProcesses();
             TiaPortal MyTiaPortal;
             //Loop through all TIA portal processes and attempt to save
             foreach (var process in processes)
@@ -68,8 +68,7 @@ namespace TIAAutoSave
                     Console.WriteLine(e.Message);
                 }
             }
-            tIAAutosaveForm.Invoke(tIAAutosaveForm.delegateUpdateWithAutosaveList);
-
+            tIAAutosaveForm.Invoke(tIAAutosaveForm.delegateUpdateWithAutosaveList); // update the form
         }
     }
 

@@ -54,7 +54,7 @@ namespace TIAAutoSave
             this.buttonAddSel.TabIndex = 1;
             this.buttonAddSel.Text = ">";
             this.buttonAddSel.UseVisualStyleBackColor = true;
-            this.buttonAddSel.Click += new System.EventHandler(this.buttonAddSel_Click);
+            this.buttonAddSel.Click += new System.EventHandler(this.ButtonAddSel_Click);
             // 
             // buttonAddAll
             // 
@@ -64,7 +64,7 @@ namespace TIAAutoSave
             this.buttonAddAll.TabIndex = 2;
             this.buttonAddAll.Text = ">>";
             this.buttonAddAll.UseVisualStyleBackColor = true;
-            this.buttonAddAll.Click += new System.EventHandler(this.buttonAddAll_Click);
+            this.buttonAddAll.Click += new System.EventHandler(this.ButtonAddAll_Click);
             // 
             // buttonDelSel
             // 
@@ -74,7 +74,7 @@ namespace TIAAutoSave
             this.buttonDelSel.TabIndex = 3;
             this.buttonDelSel.Text = "<";
             this.buttonDelSel.UseVisualStyleBackColor = true;
-            this.buttonDelSel.Click += new System.EventHandler(this.buttonDelSel_Click);
+            this.buttonDelSel.Click += new System.EventHandler(this.ButtonDelSel_Click);
             // 
             // buttonDelAll
             // 
@@ -84,7 +84,7 @@ namespace TIAAutoSave
             this.buttonDelAll.TabIndex = 4;
             this.buttonDelAll.Text = "<<";
             this.buttonDelAll.UseVisualStyleBackColor = true;
-            this.buttonDelAll.Click += new System.EventHandler(this.buttonDelAll_Click);
+            this.buttonDelAll.Click += new System.EventHandler(this.ButtonDelAll_Click);
             // 
             // labelTime
             // 
@@ -150,7 +150,7 @@ namespace TIAAutoSave
             0,
             0,
             65536});
-            this.numericUpDownASTime.ValueChanged += new System.EventHandler(this.numericUpDownASTime_ValueChanged);
+            this.numericUpDownASTime.ValueChanged += new System.EventHandler(this.NumericUpDownASTime_ValueChanged);
             // 
             // buttonRefresh
             // 
@@ -160,7 +160,7 @@ namespace TIAAutoSave
             this.buttonRefresh.TabIndex = 32;
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
             // listViewProcessesWoAS
             // 

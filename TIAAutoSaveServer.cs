@@ -1,16 +1,12 @@
 ﻿using System;
 namespace TIAAutoSave
 {
-    public class RemoteObject : MarshalByRefObject
+    public class TIAAutoSaveServer : MarshalByRefObject
     {
         public static TIAAutosaveForm tIAAutosaveForm; // constructing object of this object (set manually when contstructing, because a non standard contructor cannot be called from client)
-        public void addProcToAS(int pid)
+        public void AddProcToAS(int pid)
         {
-            tIAAutosaveForm.addProcToASViaPid(pid);
-        }
-        public void doSomething()
-        {
-            Console.WriteLine("GetCount has been called.");
+            tIAAutosaveForm.AddProcToASViaPid(pid);
         }
     }
 }
