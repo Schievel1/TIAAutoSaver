@@ -1,3 +1,5 @@
+Licenced under GNU GPL V3 https://www.gnu.org/licenses/gpl-3.0.en.html
+
 # TIAAutoSaver
 TIAAutoSaver is a simple project that automatically saves instances of Siemens' PLC IDE "TIA Portal" in a costum interval. 
 
