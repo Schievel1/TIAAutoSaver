@@ -15,7 +15,7 @@ Run TIAAutoSaver.exe alongside TIA-Portal. TIA Portal instances will automatical
 Please keep in mind, that saving removes the ability to undo things in TIA Portal. 
 Also saving takes a while on older versions on TIA Portal, so you should not add too many instances to the autosave list. 
 
-# TIAAutoSaveStarter.exe
+# TIAAutoSaveStarter
 TIAAutoSaveStarter is an additional small program that lets you create a shortcut to start a new TIA Portal instance and automatically add it to the list of autosave instances. 
 
 - TIAAutoSaveStarter.exe needs to remain in the same folder like TIAAutoSave.exe.
